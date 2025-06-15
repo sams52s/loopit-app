@@ -1,3 +1,37 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  phoneNumber: String!
+  address: String
+  role: String!
+  createdAt: String!
+  isDeleted: Boolean!
+}
+
+input CreateUserInput {
+  username: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  address: String
+}
+
+input UpdateUserInput {
+  id: ID!
+  username: String
+  email: String
+  password: String
+  phoneNumber: String
+  address: String
+}
+
 type Query {
-    hello: String
+  getUsers: [User!]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(input: UpdateUserInput!): User!
+  softDeleteUser(id: ID!): Boolean!
 }
