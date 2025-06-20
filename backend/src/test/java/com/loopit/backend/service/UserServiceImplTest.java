@@ -1,6 +1,5 @@
 package com.loopit.backend.service;
 
-import com.loopit.backend.controller.UserGraphQLController.UserFieldsInput;
 import com.loopit.backend.dto.UserDto;
 import com.loopit.backend.model.User;
 import com.loopit.backend.repository.UserRepository;
@@ -9,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,9 +31,12 @@ public class UserServiceImplTest {
 
     @Test
     void shouldCreateUser() {
-        UserFieldsInput input = new UserFieldsInput(
-                "testUser", "test@example.com", "plainPass", "1234567890", "Test Address"
-        );
+        Map<String, Object> input = new HashMap<>();
+        input.put("username", "testUser");
+        input.put("email", "test@example.com");
+        input.put("password", "plainPass");
+        input.put("phoneNumber", "1234567890");
+        input.put("address", "Test Address");
 
         when(passwordEncoder.encode("plainPass")).thenReturn("hashedPass");
 

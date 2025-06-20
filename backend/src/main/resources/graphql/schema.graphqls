@@ -34,4 +34,5 @@ type Mutation {
   createUser(input: CreateUserInput!): User!
   updateUser(input: UpdateUserInput!): User!
   softDeleteUser(id: ID!): Boolean!
+  login(email: String!, password: String!): String!
 }
