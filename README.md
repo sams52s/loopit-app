@@ -32,19 +32,19 @@ comprehensive testing and documentation for production-ready deployment.
 
 ### 🛠️ Phase 3: Product Module (Backend)
 
-- [ ] Design `Product` entity with UUID primary keys and relationships to User, Category, and Transaction entities
-- [ ] Implement DTOs and Mappers for product input and output with validation constraints
-- [ ] Enforce entity-level constraints such as unique fields, non-nullable attributes, and business rules
-- [ ] Normalize category data and manage category relationships
-- [ ] Develop GraphQL queries and mutations (`createProduct`, `updateProduct`, `getProducts`, etc.)
-- [ ] Establish and enforce relationships between Product, User (owner/renter), Category, and transaction tables
-- [ ] Write unit and integration tests to cover product logic and data consistency
+- [x] Design `Product` entity with UUID primary keys and relationships to User, Category, and Transaction entities
+- [x] Implement DTOs and Mappers for product input and output with validation constraints
+- [x] Enforce entity-level constraints such as unique fields, non-nullable attributes, and business rules
+- [x] Normalize category data and manage category relationships
+- [x] Develop GraphQL queries and mutations (`createProduct`, `updateProduct`, `getProducts`, etc.)
+- [x] Establish and enforce relationships between Product, User (owner/renter), Category, and transaction tables
+- [x] Write unit and integration tests to cover product logic and data consistency
 
 ### 🎨 Phase 4: Frontend Integration
 
-- [ ] Create user registration and login forms using React and Apollo Client
-- [ ] Integrate GraphQL queries and mutations with frontend UI components
-- [ ] Develop reusable UI components such as product cards, input fields, and multi-step forms
+- [x] Create user registration and login forms using React and Apollo Client
+- [x] Integrate GraphQL queries and mutations with frontend UI components
+- [x] Develop reusable UI components such as product cards, input fields, and multi-step forms
 - [ ] Implement error handling and loading states for all asynchronous operations
 - [ ] Add state management for authentication and user data using React Context API or Zustand
 - [ ] Implement redirection logic after login, registration, and logout flows
