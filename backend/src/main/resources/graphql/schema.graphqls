@@ -82,23 +82,33 @@ input UpdateTransactionInput {
 }
 
 type Query {
+  # User queries
   getUsers: [User!]!
+
+  # Product queries
   getProducts: [Product!]!
   getProductById(id: ID!): Product
+
+  # Category queries
   getCategories: [Category!]!
+
+  # Transaction queries
   getTransactions: [Transaction!]!
 }
 
 type Mutation {
+  # User mutations
   createUser(input: CreateUserInput!): User!
   updateUser(input: UpdateUserInput!): User!
   softDeleteUser(id: ID!): Boolean!
   login(email: String!, password: String!): String!
 
+  # Product mutations
   createProduct(input: CreateProductInput!): Product!
   updateProduct(input: UpdateProductInput!): Product!
   deleteProduct(id: ID!): Boolean!
 
+  # Transaction mutations
   createTransaction(input: CreateTransactionInput!): Transaction!
   updateTransaction(input: UpdateTransactionInput!): Transaction!
   deleteTransaction(id: ID!): Boolean!
