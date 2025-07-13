@@ -26,8 +26,67 @@ input UpdateUserInput {
   address: String
 }
 
+type Product {
+  id: ID!
+  name: String!
+  description: String
+  price: Float!
+  owner: User!
+  category: Category!
+  transactions: [Transaction!]!
+}
+
+input CreateProductInput {
+  name: String!
+  description: String
+  price: Float!
+  ownerId: ID!
+  categoryId: ID!
+}
+
+input UpdateProductInput {
+  id: ID!
+  name: String
+  description: String
+  price: Float
+  categoryId: ID
+}
+
+type Category {
+  id: ID!
+  name: String!
+  products: [Product!]!
+}
+
+type Transaction {
+  id: ID!
+  product: Product!
+  renter: User!
+  startDate: String!
+  endDate: String!
+  status: String!
+}
+
+input CreateTransactionInput {
+  productId: ID!
+  renterId: ID!
+  startDate: String!
+  endDate: String!
+}
+
+input UpdateTransactionInput {
+  id: ID!
+  startDate: String
+  endDate: String
+  status: String
+}
+
 type Query {
   getUsers: [User!]!
+  getProducts: [Product!]!
+  getProductById(id: ID!): Product
+  getCategories: [Category!]!
+  getTransactions: [Transaction!]!
 }
 
 type Mutation {
@@ -35,4 +94,12 @@ type Mutation {
   updateUser(input: UpdateUserInput!): User!
   softDeleteUser(id: ID!): Boolean!
   login(email: String!, password: String!): String!
+
+  createProduct(input: CreateProductInput!): Product!
+  updateProduct(input: UpdateProductInput!): Product!
+  deleteProduct(id: ID!): Boolean!
+
+  createTransaction(input: CreateTransactionInput!): Transaction!
+  updateTransaction(input: UpdateTransactionInput!): Transaction!
+  deleteTransaction(id: ID!): Boolean!
 }
