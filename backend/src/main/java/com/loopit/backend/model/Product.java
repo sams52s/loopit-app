@@ -3,9 +3,7 @@ package com.loopit.backend.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,6 +15,8 @@ import java.util.UUID;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "products")
 public class Product {
@@ -37,7 +37,8 @@ public class Product {
     @Column(nullable = false)
     private Double price;
 
-    private boolean isAvailable = true;
+    @Column(name = "is_available", nullable = false)
+    private boolean available = true;
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
@@ -55,4 +56,6 @@ public class Product {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+
 }

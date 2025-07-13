@@ -20,6 +20,4 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     List<Product> findByCategoryIdAndIsAvailableTrue(UUID categoryId);
 
     List<Product> findByOwnerIdAndIsAvailableTrue(UUID ownerId);
-
-    List<Product> findByUserId(UUID userId);
 }
